@@ -26,9 +26,9 @@ export default class extends Controller {
         document.querySelector('.ms-choice').classList.remove('active');
       },
       width: "auto",
-      onAfterCreate: () => {
-        document.querySelector('.ms-choice').tabIndex = 0;
-      }
+      // onAfterCreate: () => {
+      //   document.querySelector('.ms-choice').tabIndex = 0;
+      // }
     })
     $('#query_status').multipleSelect('checkAll')
   }

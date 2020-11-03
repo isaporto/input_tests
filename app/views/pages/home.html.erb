@@ -9,7 +9,7 @@
     aria-expanded="false" aria-controls="multiCollapse1 multiCollapse2" tabindex="0">
     <i class="fas fa-angle-double-up" tabindex="-1"></i>
   </button>
-  <%= f.input :status, collection: ['option1', 'option2'], input_html: { multiple: true, tabindex: "-1" }, wrapper_html: { id: "multiCollapse1",class: "col-sm-12 col-md-4 col-xl-2 collapse multicollapse show" } %>
+  <%= f.input :status, collection: ['option1', 'option2'], input_html: { multiple: true }, wrapper_html: { id: "multiCollapse1",class: "col-sm-12 col-md-4 col-xl-2 collapse multicollapse show" } %>
   <div id="multiCollapse2" class="query_date collapse multicollapse show form-group col-sm-12 col-md-8 col-xl-3">
     <label class="string optional" for="query_date_start">Período de tempo</label>
     <div class="flex-center">

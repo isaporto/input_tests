@@ -1,0 +1,285 @@
+// general form
+.was-validated .form-control:invalid, .form-control.is-invalid,
+.was-validated .form-control:valid, .form-control.is-valid {
+  background-position: right 1rem center;
+}
+.form-control {
+  height: 2.4rem;
+  border-radius: .4rem;
+  transition: border .3s;
+  border-color: $gray;
+  &:focus, &:active {
+    border-color: $orange;
+    box-shadow: none;
+    background: $light-orange;
+    & ~ a {
+      border-color: $decode-orange;
+    }
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+}
+input[type="checkbox"] {
+  appearance: none;
+  margin-top: 0;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: "\f0c8";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-size: 1rem;
+    color: $decode-orange;
+    height: .8rem;
+    background: white;
+    display: flex;
+    align-items: center;
+  }
+  &:checked::before {
+    content: "\f14a";
+    font-weight: 900;
+    color: $decode-orange;
+  }
+}
+// form from devise
+#new_user {
+  display: flex;
+  flex-direction: column;
+  & > .btn-orange, & > .btn-light-orange {
+    align-self: center;
+  }
+}
+
+// form from document index
+form.row {
+  align-items: flex-end;
+  justify-content: space-around;
+  margin: 0;
+  .form-group {
+    width: -webkit-fill-available;
+  }
+}
+.form-submit {
+  margin-bottom: 1rem;
+  min-width: 10rem;
+  order: -1;
+}
+.query_date {
+  p {
+    margin: .5rem;
+  }
+}
+.query_status {
+  display: flex;
+  flex-direction: column;
+}
+.query_document {
+  order: -2;
+  &::before {
+    content: url(search.svg);
+    height: .8rem;
+    width: .8rem;
+    position: absolute;
+    bottom: 1.1rem;
+    left: 2rem;
+  }
+}
+.simple_form .btn-arrows {
+  order: -2;
+}
+#query_document {
+  padding-left: 3rem;
+}
+#query_status {
+  width: 10rem;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  appearance:none;
+  background: url('down-arrow.svg');
+}
+.datepicker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  &.form-group {
+    margin: 0;
+  }
+  a {
+    position: absolute;
+    width: 2rem;
+    right: 0;
+    padding: .4rem .6rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 0 .4rem .4rem 0;
+    color: $decode-orange;
+    transition: color .2s, background .2s;
+    border: 1px solid #ced4da;
+    &:hover {
+      color: white;
+      background: $decode-orange;
+    }
+  }
+  .form-control {
+    background: white;
+  }
+  .form-control:focus {
+    background: $light-orange;
+  }
+  .date-toggle {
+    border-radius: none;
+  }
+  &.query_date_start {
+    margin-right: 2rem;
+  }
+}
+#query_date_start {
+  & ~ .date-toggle {
+    border-radius: 0;
+  }
+  & ~ .date-clear {
+    right: -2rem;
+    border-left: 0;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+input.btn-orange, input.btn-light-orange {
+  width: -webkit-fill-available;
+}
+
+// Select status input
+
+.query_status {
+  & > div {
+    border: none;
+  }
+  .ms-drop input[type="checkbox"] {
+    margin-top: 0;
+  }
+  .ms-drop.bottom {
+    box-shadow: none;
+    border-top: none;
+    border-radius: 0 0 .4rem .4rem;
+    border-color: $gray;
+    li {
+      height: 2.4rem;
+      display: flex;
+      align-items: center;
+      &:hover {
+        background-color: $light-orange;
+      }
+    }
+    ul > li label {
+      display: flex;
+      align-items: center;
+    }
+    input[type="checkbox"] {
+      appearance: none;
+    }
+  }
+  .ms-parent button.ms-choice {
+    border: 1px solid $gray;
+    border-radius: .4rem;
+    transition: border 0s .4s, border-radius 0s .4s;
+    &.active {
+      border-bottom-color: white;
+      border-radius: .4rem .4rem 0 0;
+      transition: none;
+      .icon-caret::before {
+        color: $decode-orange;
+      }
+    }
+    &:focus {
+      border-color: $decode-orange;
+      & ~ .ms-drop {
+        border-color: $decode-orange;
+      }
+    }
+    &.active:focus {
+      border-bottom-color: white;
+    }
+    & > div.icon-caret {
+      border: none;
+      position: relative;
+      right: 0;
+      height: 100%;
+      width: auto;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+    }
+  }
+}
+button.ms-choice {
+  &:focus {
+    outline: none;
+  }
+}
+
+.form-control {
+  button {
+    &:focus {
+      background: $light-orange;
+    }
+  }
+}
+div.icon-caret {
+  &::before {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding: 0 .5rem;
+    color: #495057;
+    transition: transform .4s, color .4s;
+  }
+  &.open::before {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .query {
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 1200px) {
+  .form-submit {
+    order: 1;
+  }
+}
+@media (max-width: 576px) {
+  .form-submit {
+    order: 1;
+  }
+  input.file {
+      visibility: hidden;
+      width: 0px;
+  }
+  .document_doc {
+      display: flex;
+      align-items: center;
+      margin: .5rem 0;
+      small {
+          margin-top: 0;
+      }
+      label {
+          margin: 0;
+      }
+      i {
+          margin-left: .5rem;
+          color: red;
+      }
+  }
+}

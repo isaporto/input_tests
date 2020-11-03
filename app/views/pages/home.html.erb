@@ -1,2 +1,42 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="flex-s-between align-items-center mb-4">
+  <h2>Documents</h2>
+  <%= link_to "Link to another path", another_path, class: "btn-orange" %>
+</div>
+<div class="dash-box" data-controller="input" data-provide='datepicker'>
+  <%= simple_form_for :query, :method => :get, url: root_path, html: { class: "row" }, remote: true do |f| %>
+  <%= f.input :document, label: "Qual documento você está procurando?", required: false, placeholder: "Procure pelo título ou conteúdo do documento", wrapper_html: { class: "col-10 col-sm-7 col-md-8 col-xl-5" } %>
+  <button type="button" class="btn-arrows col-1 collapsed" data-toggle="collapse" data-target=".multicollapse"
+    aria-expanded="false" aria-controls="multiCollapse1 multiCollapse2" tabindex="0">
+    <i class="fas fa-angle-double-up" tabindex="-1"></i>
+  </button>
+  <%= f.input :status, collection: ['option1', 'option2'], input_html: { multiple: true, tabindex: "-1" }, wrapper_html: { id: "multiCollapse1",class: "col-sm-12 col-md-4 col-xl-2 collapse multicollapse show" } %>
+  <div id="multiCollapse2" class="query_date collapse multicollapse show form-group col-sm-12 col-md-8 col-xl-3">
+    <label class="string optional" for="query_date_start">Período de tempo</label>
+    <div class="flex-center">
+      <div class="datepicker form-group string optional query_date_start">
+        <input autocomplete="chrome-off" class="form-control string optional" data-inputmask-alias="datetime"
+          data-inputmask-inputformat="dd/mm/yyyy" inputmode="numeric" data-js="date" placeholder="dd/mm/yyyy"
+          type="text" name="query[date_start]" id="query_date_start" data-input>
+        <a class="date-toggle" data-action="focus->input#handleEnter" title="toggle" tabindex="0" data-toggle>
+          <i class="far fa-calendar"></i>
+        </a>
+        <a class="date-clear" data-action="focus->input#handleEnter" title="clear" tabindex="0" data-clear>
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+      <p>to</p>
+      <div id="date_end" class="datepicker form-group string required query_date_end">
+        <input autocomplete="chrome-off" class="form-control string required" data-inputmask-alias="datetime"
+          data-inputmask-inputformat="dd/mm/yyyy" inputmode="numeric" data-js="date" placeholder="dd/mm/yyyy"
+          type="text" name="query[date_end]" id="query_date_end" data-input>
+        <a class="date-toggle" data-action="focus->input#handleEnter" title="toggle" tabindex="0" data-toggle>
+          <i class="far fa-calendar"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="form-submit col-12 col-sm-2 col-md-3 col-xl-1">
+    <%= f.submit "PESQUISAR", class: "btn-orange" %>
+  </div>
+  <% end %>
+</div>
